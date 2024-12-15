@@ -21,6 +21,11 @@ A robust task management application with:
 - Docker (optional)
 - PostgreSQL
 
+## TODO
+
+- [ ] Quick task add to "inbox" - default list
+- [ ] Make folder optional
+
 ## Local Development Setup
 
 1. Clone the repository
