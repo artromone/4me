@@ -17,7 +17,7 @@ A robust task management application with:
 
 ## Prerequisites
 
-- Go 1.21+
+- Go 1.23+
 - Docker (optional)
 - PostgreSQL
 
@@ -25,8 +25,8 @@ A robust task management application with:
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/task-management.git
-   cd task-management
+   git clone https://github.com/artromone/4me.git
+   cd 4me
    ```
 
 2. Create `.env` file
@@ -41,27 +41,26 @@ A robust task management application with:
    go mod download
    ```
 
-5. Run database migrations
-   ```bash
-   make migrate
-   ```
-
 ## Running the Application
+
+### Docker Deployment
+```bash
+# Build and run with ### Docker Deployment
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+```Docker Compose
+docker-compose up --build
+```
 
 ### Local Development
 ```bash
-# Start the server
-make run-server
+# Build the cli
+make
 
 # CLI Commands
 ./task-cli create-task "Buy groceries" --list 1
 ./task-cli list-tasks --list 1
-```
-
-### Docker Deployment
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
 ```
 
 ## CLI Usage
