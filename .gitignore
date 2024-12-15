@@ -1,0 +1,13 @@
+# Build tools
+go.sum
+README.md
+.gitignore
+.dockerignore
+
+# Build artifacts
+bin/
+dist/
+build/
+
+# Env
+.env
