@@ -6,15 +6,10 @@ import (
 
     "github.com/artromone/4me/internal/database"
     "github.com/artromone/4me/internal/server"
-    "github.com/joho/godotenv"
+    "github.com/artromone/4me/pkg/config"
 )
 
 func main() {
-    // Load environment variables
-    if err := godotenv.Load(); err != nil {
-        log.Println("No .env file found")
-    }
-
     // Initialize database
     db := database.NewDatabase()
     defer db.Close()
@@ -31,9 +26,9 @@ func main() {
     }
 
     // Start server
-    srv := server.NewServer(db)
+    srv := server.NewServer(config.LoadConfig())
     log.Printf("Starting server on port %s", port)
-    if err := srv.Start(":" + port); err != nil {
+    if err := srv.Start(); err != nil {
         log.Fatalf("Server failed to start: %v", err)
     }
 }
