@@ -45,11 +45,7 @@ A robust task management application with:
 
 ### Docker Deployment
 ```bash
-# Build and run with ### Docker Deployment
-```bash
 # Build and run with Docker Compose
-docker-compose up --build
-```Docker Compose
 docker-compose up --build
 ```
 
@@ -57,8 +53,10 @@ docker-compose up --build
 ```bash
 # Build the cli
 make
+```
 
 # CLI Commands
+```bash
 ./task-cli create-task "Buy groceries" --list 1
 ./task-cli list-tasks --list 1
 ```
