@@ -1,1 +1,119 @@
-# 4me
+# Task Management Application
+
+## Overview
+
+A robust task management application with:
+- RESTful API Server
+- Command-Line Interface (CLI)
+- PostgreSQL Database Integration
+- Docker Support
+
+## Features
+
+- Create, read, update, and delete tasks
+- Organize tasks into lists and groups
+- CLI for quick task management
+- Dockerized deployment
+
+## Prerequisites
+
+- Go 1.21+
+- Docker (optional)
+- PostgreSQL
+
+## Local Development Setup
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/task-management.git
+   cd task-management
+   ```
+
+2. Create `.env` file
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Edit `.env` with your database credentials
+
+4. Install dependencies
+   ```bash
+   go mod download
+   ```
+
+5. Run database migrations
+   ```bash
+   make migrate
+   ```
+
+## Running the Application
+
+### Local Development
+```bash
+# Start the server
+make run-server
+
+# CLI Commands
+./task-cli create-task "Buy groceries" --list 1
+./task-cli list-tasks --list 1
+```
+
+### Docker Deployment
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+```
+
+## CLI Usage
+
+### Tasks
+```bash
+# Create a task
+./task-cli create-task "Meeting preparation" --list 1 --due 2024-01-15
+
+# List tasks in a list
+./task-cli list-tasks --list 1
+```
+
+### Lists
+```bash
+# Create a list
+./task-cli create-list "Work Tasks" --group 1
+
+# List groups
+./task-cli list-groups
+```
+
+## API Endpoints
+
+### Tasks
+- `POST /tasks`: Create a task
+- `GET /tasks?list_id=1`: List tasks in a list
+- `GET /tasks/{id}`: Get a specific task
+- `PUT /tasks/{id}`: Update a task
+- `DELETE /tasks/{id}`: Delete a task
+
+### Lists & Groups
+- Similar CRUD endpoints for lists and groups
+
+## Configuration
+
+Configure via `.env` file or environment variables:
+- `DB_HOST`: Database host
+- `DB_PORT`: Database port
+- `DB_USER`: Database username
+- `DB_PASSWORD`: Database password
+- `DB_NAME`: Database name
+- `SERVER_PORT`: API server port
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+No license :)

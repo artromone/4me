@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: taskmanagement
+      POSTGRES_USER: taskapp
+      POSTGRES_PASSWORD: your_secure_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  server:
+    build: .
+    depends_on:
+      - database
+    environment:
+      - DB_HOST=database
+      - DB_PORT=5432
+      - DB_USER=taskapp
+      - DB_PASSWORD=your_secure_password
+      - DB_NAME=taskmanagement
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
